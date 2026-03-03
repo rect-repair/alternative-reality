@@ -1,7 +1,6 @@
-# Global ARG Game Jam - Features
+# [[alternative reality]] conference
 
-## Overview
-Website for the **Global ARG Game Jam** event ([[rect*]]repair, March 2026), featuring an interactive world map with participating locations and event scheduling! Naked software :)
+Naked software :)
 
 ---
 
