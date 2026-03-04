@@ -1,7 +1,3 @@
-/* ==================== */
-/* CALENDAR PAGE STYLES */
-/* ==================== */
-
 .calendar-main {
     padding: 40px 0;
     display: block;
@@ -21,9 +17,7 @@
     }
 }
 
-/* ==================== */
-/* TIMELINE SIDEBAR */
-/* ==================== */
+
 
 .timeline-sidebar {
     background: var(--gray);
@@ -199,41 +193,6 @@
         #666;
 }
 
-/* Legacy cal-day variants (from sidebar calendar rendering) */
-.cal-day.event {
-    background: linear-gradient(135deg, var(--black) 70%, transparent 70%),
-        var(--yellow);
-    color: var(--white);
-}
-
-.cal-day.jam {
-    background: repeating-linear-gradient(45deg,
-            var(--gray),
-            var(--gray) 4px,
-            #444 4px,
-            #444 8px);
-}
-
-.cal-day.launch {
-    background: linear-gradient(135deg, var(--black) 70%, transparent 70%),
-        var(--blue);
-    color: var(--white);
-}
-
-.cal-day .day-tag {
-    font-size: 8px;
-    text-transform: uppercase;
-    position: absolute;
-    bottom: 6px;
-    letter-spacing: 0.5px;
-    font-family: var(--mono);
-    font-weight: 400;
-    color: var(--cyan);
-}
-
-.cal-day.event .day-tag {
-    color: var(--black);
-}
 
 /* Day number */
 .cal-day-num {
@@ -278,12 +237,29 @@
 }
 
 /* Tag colors by event type */
-.cal-event-tag.tag-launch { background: var(--blue); }
-.cal-event-tag.tag-play   { background: var(--lime); }
-.cal-event-tag.tag-deadline { background: #ff4444; }
-.cal-event-tag.tag-open   { background: var(--yellow); }
-.cal-event-tag.tag-jam    { background: var(--cyan); }
-.cal-event-tag.tag-default { background: #666; }
+.cal-event-tag.tag-launch {
+    background: var(--blue);
+}
+
+.cal-event-tag.tag-play {
+    background: var(--lime);
+}
+
+.cal-event-tag.tag-deadline {
+    background: #ff4444;
+}
+
+.cal-event-tag.tag-open {
+    background: var(--yellow);
+}
+
+.cal-event-tag.tag-jam {
+    background: var(--cyan);
+}
+
+.cal-event-tag.tag-default {
+    background: #666;
+}
 
 /* ==================== */
 /* EVENTS GRID */

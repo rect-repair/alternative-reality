@@ -67,31 +67,6 @@
     color: var(--white);
 }
 
-/* Highlight box */
-.highlight-box {
-    background: var(--black);
-    border: 2px solid #444;
-    padding: 16px 20px;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.highlight-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 6px 12px;
-    background: var(--blue);
-    color: var(--black);
-    font-weight: 700;
-}
-
-.highlight-text {
-    font-weight: 500;
-    color: var(--white);
-}
 
 
 .about-section .timeline {
@@ -122,14 +97,6 @@
     border-radius: 50%;
 }
 
-.about-section .timeline-item.highlight {
-    background: linear-gradient(90deg, rgba(25, 0, 255, 0.08) 0%, transparent 100%);
-}
-
-.about-section .timeline-item.highlight::before {
-    background: var(--blue);
-    border-color: var(--blue);
-}
 
 .about-section .timeline-date {
     font-size: 18px;
@@ -228,13 +195,6 @@
     display: inline-block;
     margin-bottom: 10px;
     font-weight: 700;
-}
-
-.node-desc {
-    font-size: 11px;
-    color: #999;
-    margin: 0;
-    line-height: 1.5;
 }
 
 

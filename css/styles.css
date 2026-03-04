@@ -71,9 +71,8 @@ h4 {
     font-size: 18px;
 }
 
-/* HOVER STYLES */
 
-/* primary hover - lime background */
+/* primary hover */
 .hover-primary:hover,
 .calendar-day:hover:not(.inactive),
 nav a:hover,
@@ -82,17 +81,15 @@ nav a:hover,
     color: var(--black);
 }
 
-/* secondary hover - border highlight */
+/* secondary hover border highlight */
 .hover-border:hover,
-.cal-day:hover,
-.chaos-item:hover,
 .step:hover,
 .faq-item:hover,
 .node-card:hover {
     border-color: var(--blue);
 }
 
-/* Shift hover - slight movement */
+
 .hover-shift:hover,
 .event-item:hover {
     transform: translateX(4px);
@@ -523,7 +520,7 @@ main {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 8px 4px;
+    padding: 8px 8px;
     border-bottom: 1px dotted #444;
     cursor: pointer;
     transition: all 0.1s;
@@ -539,17 +536,18 @@ main {
 
 .location-city {
     font-weight: 700;
-    font-size: 14px;
+    font-size: 18px;
+    padding-bottom: 3px;
     color: var(--black);
 }
 
 .location-org {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--blue);
 }
 
 .location-tz {
-    font-size: 11px;
+    font-size: 12px;
     color: #666;
     font-family: var(--mono);
 }
@@ -600,27 +598,18 @@ main {
     color: #999;
 }
 
-/* STATUS BAR */
-.status-bar {
-    margin-top: auto;
-    padding: 12px 20px;
-    background: var(--black);
-    color: var(--white);
-    font-size: 11px;
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--mono);
-    border-top: 2px solid var(--white);
-}
-
-.status-bar .blink {
-    color: var(--lime);
-    animation: blink 1s infinite;
-}
 
 @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
 /* FOOTER */

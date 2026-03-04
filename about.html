@@ -105,50 +105,7 @@
                 <h2>IRL Nodes</h2>
                 <p>We are hosting this jam both online (itch + discord) and IRL. Organizers in the following cities are
                     hosting IRL jam + play events. Join the <a href="https://discord.gg/XWcHTZeQg4">Discord</a> and go to your city's channel for details.</p>
-                <div class="nodes-grid">
-                    <div class="node-card">
-                        <div class="node-header">
-                            <span class="node-city">Shanghai</span>
-                            <span class="node-tz">UTC+8</span>
-                        </div>
-                        <div class="node-org">hosted by <a href="http://instagram.com/rect_repair"></a>rect*repair</a></div>
-                    </div>
-                    <div class="node-card">
-                        <div class="node-header">
-                            <span class="node-city">Tokyo</span>
-                            <span class="node-tz">UTC+9</span>
-                        </div>
-                        <div class="node-org">hosted by <a href ="http://gaemz.carrd.co/">gaemz</a></div>
-                    </div>
-                    <div class="node-card">
-                        <div class="node-header">
-                            <span class="node-city">London</span>
-                            <span class="node-tz">UTC+0</span>
-                        </div>
-                        <div class="node-org">hosted by <a href="https://studioplayfool.com/">playfool</a></div>
-                    </div>
-                    <div class="node-card">
-                        <div class="node-header">
-                            <span class="node-city">Taipei</span>
-                            <span class="node-tz">UTC+8</span>
-                        </div>
-                        <div class="node-org">hosted by <a href ="https://fonserbc.itch.io/">ferran</a></div>
-                    </div>
-                    <div class="node-card">
-                        <div class="node-header">
-                            <span class="node-city">The Hague</span>
-                            <span class="node-tz">UTC+1</span>
-                        </div>
-                        <div class="node-org">hosted by <a href ="https://janaromanova.com/">jana romanova </a></div>
-                    </div>
-                    <div class="node-card">
-                        <div class="node-header">
-                            <span class="node-city">Mexico City / NYC</span>
-                            <span class="node-tz">pending</span>
-                        </div>
-                        <div class="node-org">TBD</div>
-                    </div>
-                </div>
+                <div class="nodes-grid" id="nodes-grid"></div>
                 <p>Not near any of these cities? You're still invited to join the JAM remotely! Join <a href="https://discord.gg/XWcHTZeQg4">Discord</a> to
                     participate in general game-dev discussions, self-organize with people in your city, form a team
                     online, or work alone.</p>
@@ -239,7 +196,27 @@
         </div>
         <div class="footer-time" id="current-time"></div>
     </footer>
+    <script src="nodes-data.js"></script>
     <script>
+        // Render nodes grid from shared data
+        (function() {
+            const grid = document.getElementById('nodes-grid');
+            if (!grid) return;
+            grid.innerHTML = NODES.map(node => {
+                const orgHtml = node.url
+                    ? `<div class="node-org">hosted by <a href="${node.url}">${node.org}</a></div>`
+                    : `<div class="node-org">hosted by ${node.org}</div>`;
+                return `
+                    <div class="node-card">
+                        <div class="node-header">
+                            <span class="node-city">${node.city}</span>
+                            <span class="node-tz">${node.tz}</span>
+                        </div>
+                        ${orgHtml}
+                    </div>`;
+            }).join('');
+        })();
+
         function updateTime() {
             const now = new Date();
             const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });

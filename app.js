@@ -1,10 +1,9 @@
-// Stadia Maps API key - get free key at https://stadiamaps.com/
-// Add your domain (sandpills.github.io) as a property, then paste key here:
+// Stadia Maps API key?
 const STADIA_API_KEY = ''; // leave empty to disable Stamen styles
 
 // Map styles
 const mapStyles = [
-    // CARTO styles (free, no key needed)
+    // CARTO styles
     {
         name: 'CARTO Dark',
         tiles: ['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png'],
@@ -20,7 +19,7 @@ const mapStyles = [
         tiles: ['https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png'],
         attribution: '© CARTO © OpenStreetMap'
     },
-    // Stamen styles (requires STADIA_API_KEY above)
+    // Stamen styles
     ...(STADIA_API_KEY ? [
         {
             name: 'Stamen Toner',
@@ -41,14 +40,8 @@ const mapStyles = [
 ];
 let currentStyleIndex = 0;
 
-// locations
-const locations = [
-    { id: 'shanghai', name: 'Shanghai', org: 'rect_repair', coords: [121.4737, 31.2304] },
-    { id: 'tokyo', name: 'Tokyo', org: 'gaemz', coords: [139.6917, 35.6895] },
-    { id: 'hague', name: 'The Hague', org: 'Jana Romanova', coords: [4.3007, 52.0705] },
-    { id: 'london', name: 'London', org: 'studio playfool', coords: [-0.1276, 51.5074] },
-    { id: 'mexico', name: 'Mexico City', org: 'Diego', coords: [-99.1332, 19.4326] }
-];
+// Active (non-pending) nodes for map features
+const activeNodes = NODES.filter(n => !n.pending);
 
 // Get line coordinates, handling antimeridian crossing for shortest visual path
 function getLineCoords(coord1, coord2) {
@@ -57,7 +50,6 @@ function getLineCoords(coord1, coord2) {
     const lat1 = coord1[1];
     const lat2 = coord2[1];
 
-    // Check if crossing antimeridian is shorter
     const directDiff = Math.abs(lon2 - lon1);
     const wrapDiff = 360 - directDiff;
 
@@ -72,7 +64,7 @@ function getLineCoords(coord1, coord2) {
     return [[lon1, lat1], [lon2, lat2]];
 }
 
-// Initialize map with CARTO Dark (no API key needed)
+// Initialize map with CARTO Dark
 const map = new maplibregl.Map({
     container: 'map',
     style: {
@@ -103,60 +95,11 @@ const map = new maplibregl.Map({
 
 const popups = {};
 
-// Style switcher - press M to cycle, or click the style indicator
-// function switchStyle(index) {
-//     currentStyleIndex = index % mapStyles.length;
-//     const style = mapStyles[currentStyleIndex];
-
-//     // Listen for this specific style load before setting
-//     map.once('style.load', () => {
-//         console.log('Style loaded, adding overlays...');
-//         addOverlays();
-//     });
-
-//     map.setStyle({
-//         version: 8,
-//         sources: {
-//             'basemap': {
-//                 type: 'raster',
-//                 tiles: style.tiles,
-//                 tileSize: 256,
-//                 attribution: style.attribution
-//             }
-//         },
-//         layers: [{
-//             id: 'basemap-layer',
-//             type: 'raster',
-//             source: 'basemap',
-//             minzoom: 0,
-//             maxzoom: 19
-//         }]
-//     });
-
-//     // Update indicator
-//     const indicator = document.getElementById('style-indicator');
-//     if (indicator) indicator.textContent = style.name;
-
-//     console.log(`Map style: ${style.name}`);
-// }
-
-// Keyboard shortcut: M to cycle styles, < > to go prev/next
-// document.addEventListener('keydown', (e) => {
-//     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-//     if (e.key === 'm' || e.key === 'M') {
-//         switchStyle(currentStyleIndex + 1);
-//     } else if (e.key === ',') {
-//         switchStyle(currentStyleIndex - 1 + mapStyles.length);
-//     } else if (e.key === '.') {
-//         switchStyle(currentStyleIndex + 1);
-//     }
-// });
-
-// Overlay data - created once
+// Overlay data
 const connectionFeatures = [];
-for (let i = 0; i < locations.length; i++) {
-    for (let j = i + 1; j < locations.length; j++) {
-        const coords = getLineCoords(locations[i].coords, locations[j].coords);
+for (let i = 0; i < activeNodes.length; i++) {
+    for (let j = i + 1; j < activeNodes.length; j++) {
+        const coords = getLineCoords(activeNodes[i].coords, activeNodes[j].coords);
         connectionFeatures.push({
             type: 'Feature',
             geometry: { type: 'LineString', coordinates: coords }
@@ -164,9 +107,9 @@ for (let i = 0; i < locations.length; i++) {
     }
 }
 
-const nodeFeatures = locations.map(loc => ({
+const nodeFeatures = activeNodes.map(loc => ({
     type: 'Feature',
-    properties: { id: loc.id, name: loc.name, org: loc.org },
+    properties: { id: loc.id, name: loc.city, org: loc.org },
     geometry: { type: 'Point', coordinates: loc.coords }
 }));
 
@@ -247,20 +190,55 @@ function addOverlays() {
     }
 }
 
-// Create popups once
-locations.forEach(loc => {
+// Create popups for active nodes
+activeNodes.forEach(loc => {
+    const orgHtml = loc.url
+        ? `<a href="${loc.url}" target="_blank">${loc.org}</a>`
+        : (loc.org || 'TBD');
     popups[loc.id] = new maplibregl.Popup({
         offset: 15,
         closeButton: true,
         closeOnClick: false
     }).setHTML(`
         <div class="marker-popup">
-            <h4>${loc.name}</h4>
-            <div class="org">${loc.org}</div>
+            <h4>${loc.city}</h4>
+            <div class="org">${orgHtml}</div>
             <div class="coord">${loc.coords[1].toFixed(4)}°, ${loc.coords[0].toFixed(4)}°</div>
         </div>
     `);
 });
+
+// Render sidebar nodes list from NODES data
+function renderSidebar() {
+    const list = document.getElementById('nodes-list');
+    if (!list) return;
+    list.innerHTML = NODES.map(node => `
+        <li class="location-item${node.pending ? ' pending' : ''}" data-city="${node.id}">
+            <div class="location-dot"></div>
+            <div class="location-info">
+                <div class="location-city">${node.city}</div>
+                <div class="location-org">hosted by ${node.org || 'TBD'}</div>
+            </div>
+            <div class="location-tz">${node.tz}</div>
+        </li>
+    `).join('');
+
+    list.querySelectorAll('.location-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const cityId = item.dataset.city;
+            const loc = NODES.find(l => l.id === cityId);
+            if (loc && !loc.pending) {
+                Object.values(popups).forEach(p => p.remove());
+                map.flyTo({ center: loc.coords, zoom: 6, duration: 2000 });
+                setTimeout(() => {
+                    popups[cityId].setLngLat(loc.coords).addTo(map);
+                }, 2000);
+            }
+        });
+    });
+}
+
+renderSidebar();
 
 // Add overlays on initial map load
 map.on('load', () => {
@@ -288,21 +266,6 @@ map.on('mouseleave', 'node-markers', () => {
 map.on('mousemove', (e) => {
     const el = document.getElementById('hover-coord');
     if (el) el.textContent = `${e.lngLat.lat.toFixed(4)}°, ${e.lngLat.lng.toFixed(4)}°`;
-});
-
-// Sidebar click
-document.querySelectorAll('.location-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const cityId = item.dataset.city;
-        const loc = locations.find(l => l.id === cityId);
-        if (loc) {
-            Object.values(popups).forEach(p => p.remove());
-            map.flyTo({ center: loc.coords, zoom: 6, duration: 2000 });
-            setTimeout(() => {
-                popups[cityId].setLngLat(loc.coords).addTo(map);
-            }, 2000);
-        }
-    });
 });
 
 // Time update
