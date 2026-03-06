@@ -17,7 +17,7 @@ A game jam from March 21-25 to build an [[alternative reality]] game.
 
 Wait, do you mean augmented reality (AR)? Nope!
 
-Do you mean alternate reality game (ARG)? Nope! Well, kind of Alternative, as in alternative tech, alternative media, alternative infrastructure: another, perhaps more radical way of engaging with what's already here. We're inspired by practices including alternate reality games, pervasive games, urban games, LARP, immersive theater, etc,. but we're not precious about genre. The goal is to design playful experiences that combine game mechanics with the real world. No-tech, low-tech, or high-tech all welcome.
+Do you mean alternate reality game (ARG)? Nope! Well, kind of Alternative, as in alternative tech, alternative media, alternative infrastructure: another, perhaps more radical way of engaging with what's already here. We're inspired by practices including alternate reality games, pervasive games, urban games, net art, social interventions, performance art, LARP, immersive theater, etc,. but we're not precious about genre. The goal is to design playful experiences that combine game mechanics with the real world. No-tech, low-tech, or high-tech all welcome.
 
 ### Timeline
 
@@ -26,7 +26,7 @@ March 21-25: [[alternative reality]]: JAM!
     - [tentative] Blast theory talk
     - March 25 (Weds) UTC ??? game jam submissions due
 March 28-???: [[alternative reality]]: GAME! 
-    - March 28-29 (Sat-Sun) play events hosted by node organizers
+    - March 28-29 (Sat-Sun) play events hosted by node organizers or oragnize your own!
     - See calendar for events
 
 ### IRL Events
@@ -36,9 +36,9 @@ We are hosting this jam both online (itch + discord) and IRL.
 We have organizers in the following cities hosting IRL jam + playtest events! if you would like to attend these sessions, join the discord and go to the city’s respective channels.
 - London, hosted by playfool
 - Tokyo, hosted by gaemz
-- Shanghai, hosted by rect repair
-- Taipei, hosted by ferran
-- The Hague, hosted by jana
+- Shanghai, hosted by [[rect*]]repair
+- Taipei, hosted by ferran 
+- The Hague, hosted by jana romanova 
 - Pending: Mexico City, New York City
 
 If you're not near any of these 
