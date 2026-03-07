@@ -25,8 +25,20 @@
         <div class="calendar-page">
             <!-- Timeline sidebar -->
             <div class="timeline-sidebar">
-                <h2>TIMELINE</h2>
-                <div class="timeline" id="timeline">
+                <div class="tz-bar">
+                    <span class="tz-label">TIMEZONE</span>
+                    <select id="tz-select" onchange="changeTimezone(this.value)"></select>
+                </div>
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">all</button>
+                    <button class="filter-btn" data-filter="online" onclick="setFilter('online')">online</button>
+                    <button class="filter-btn" data-filter="irl" onclick="setFilter('irl')">IRL</button>
+                </div>
+                <div class="sidebar-header">
+                    <h2 id="sidebar-title">TIMELINE</h2>
+                    <button id="sidebar-back" onclick="showTimeline()">← timeline</button>
+                </div>
+                <div id="timeline" class="timeline">
                     <!-- Timeline renders dynamically via calendar-sync.js -->
                 </div>
             </div>
@@ -45,10 +57,7 @@
                     <!-- Calendar renders dynamically via calendar-sync.js -->
                 </div>
 
-                <!-- Events grid -->
-                <div class="events-grid" id="events-grid">
-                    <!-- Events render dynamically via calendar-sync.js -->
-                </div>
+
             </div>
         </div>
     </main>
@@ -77,24 +86,24 @@
         setInterval(updateTime, 1000);
 
         // Month navigation
-        let currentYear = calendarSync.isConfigured ? new Date().getFullYear() : 2026;
-        let currentMonth = calendarSync.isConfigured ? new Date().getMonth() : 2;
+        window.currentYear = calendarSync.isConfigured ? new Date().getFullYear() : 2026;
+        window.currentMonth = calendarSync.isConfigured ? new Date().getMonth() : 2;
 
         function navigateMonth(delta) {
-            currentMonth += delta;
-            if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            } else if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
+            window.currentMonth += delta;
+            if (window.currentMonth > 11) {
+                window.currentMonth = 0;
+                window.currentYear++;
+            } else if (window.currentMonth < 0) {
+                window.currentMonth = 11;
+                window.currentYear--;
             }
-            calendarRenderer.renderLargeCalendar('large-calendar', currentYear, currentMonth);
+            calendarRenderer.renderLargeCalendar('large-calendar', window.currentYear, window.currentMonth);
 
             const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
                 'July', 'August', 'September', 'October', 'November', 'December'];
             document.getElementById('calendar-month-title').textContent =
-                `${monthNames[currentMonth].toUpperCase()} ${currentYear}`;
+                `${monthNames[window.currentMonth].toUpperCase()} ${window.currentYear}`;
         }
     </script>
 </body>

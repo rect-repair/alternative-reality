@@ -15,9 +15,9 @@
         <button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
         <div class="header-title">[[alternative reality]]: WEEK!</div>
         <nav>
-            <a href="index.html">Map</a>
+            <a href="index.html" class="active">Map</a>
             <a href="calendar.html">Calendar</a>
-            <a href="about.html" class="active">About</a>
+            <a href="about.html">About</a>
         </nav>
     </header>
 
@@ -28,220 +28,293 @@
                 <p>You are in an [[alternative reality]] game. You have been playing it your whole life. It has weather,
                     people, rankings, transit systems of varying reliability... and no clear win condition. it has been
                     extremely online for the past couple seasons.</p>
-                <p>[[alternative reality]]:WEEK! is a series of gamejam + play events that takes this situation seriously. For two weeks in
-                    March, we want to welcome game creators and players across time-zones to make and play [[alternative reality]] games that spill out
+                <p>[[alternative reality]]:WEEK! is a series of gamejam + play events that takes this situation
+                    seriously. For two weeks in
+                    March, we want to welcome game creators and players across time-zones to make and play [[alternative
+                    reality]] games that spill out
                     of the screen and into the IRL world.</p>
-                <p>Initiated by Shanghai-based translocal collective <a href="http://instagram.com/rect_repair">[[rect*]]repair</a>. Supported by <a href="https://morning.fyi">morning.fyi</a>. Created
+                <p>Initiated by Shanghai-based translocal collective <a
+                        href="http://instagram.com/rect_repair">[[rect*]]repair</a>. Supported by <a
+                        href="https://morning.fyi">morning.fyi</a>. Created
                     by your participation.</p>
             </section>
 
-            <section class="about-section">
+            <!-- Branch selector -->
+            <section class="about-section about-branch-nav">
                 <h2>How to Participate</h2>
                 <div class="steps">
-                    <div class="step">
+                    <div class="step branch-step active" id="step-jam" onclick="switchBranch('jam')">
                         <div class="step-num">→</div>
                         <div class="step-content">
                             <strong>I want to make games</strong>
-                            <p><a href="#">└──[[alternative reality]]: JAM!</a></p>
+                            <p>└── [[alternative reality]]: JAM!</p>
                         </div>
                     </div>
-                    <div class="step">
+                    <div class="step branch-step" id="step-play" onclick="switchBranch('play')">
                         <div class="step-num">→</div>
                         <div class="step-content">
                             <strong>I want to play games</strong>
-                            <p><a href="#">└──[[alternative reality]]: PLAY!</a></p>
+                            <p>└── [[alternative reality]]: PLAY!</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="about-section">
-                <h2>[[alternative reality]]: JAM!</h2>
-                <p><em>"Wait, do you mean augmented reality (AR)? "</em> </br> Nope!</p>
-                <p><em> "Do you mean alternate reality game (ARG)?"</em> </br></p>
-                <p> ...Well, kind of!
-                    Alternative, as in alternative games, alternative tech, alternative media, alternative infrastructure: another, perhaps more radical way
-                    of engaging with what's already here. We're inspired by practices including alternate reality games,
-                    pervasive games, urban games, LARP, immersive theater, etc., but we're not precious about genre.
-                <p>The game jam is from March 21–25, with a kickoff event on Saturday, March 21st. The
-                    goal is to design playful experiences that combine game mechanics with the real world. No-tech,
-                    low-tech, or high-tech all welcome.</p>
+            <!-- JAM! branch -->
+            <div class="branch branch-jam active">
+                <section class="about-section">
+                    <h2>[[alternative reality]]: JAM!</h2>
+                    <p><em>"Wait, do you mean augmented reality (AR)?"</em><br> Nope!</p>
+                    <p><em>"Do you mean alternate reality game (ARG)?"</em><br></p>
+                    <p>...Well, kind of! Alternative, as in alternative games, alternative tech, alternative media,
+                        alternative infrastructure: another, perhaps more radical way of engaging with what's already
+                        here. We're inspired by practices including alternate reality games, pervasive games, urban
+                        games, LARP, immersive theater, etc., but we're not precious about genre.</p>
+                    <p>The game jam is from March 21–25, with a kickoff event on Saturday, March 21st. The goal is to
+                        design playful experiences that combine game mechanics with the real world. No-tech, low-tech,
+                        or high-tech all welcome.</p>
 
-                <h3>Timeline</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">Mar 21–25</div>
-                        <div class="timeline-content">
-                            <strong>[[alternative reality]]: JAM!</strong>
+                    <h3>Timeline</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">Mar 21–25</div>
+                            <div class="timeline-content">
+                                <strong>[[alternative reality]]: JAM!</strong>
+                            </div>
+                        </div>
+                        <div class="timeline-sub-item">
+                            <div class="timeline-date">Mar 21</div>
+                            <div class="timeline-content">game jam launch event (IRL + online) — UTC 12:00</div>
+                        </div>
+                        <div class="timeline-sub-item">
+                            <div class="timeline-date">Mar 25</div>
+                            <div class="timeline-content">game jam submissions due on <a
+                                    href="https://itch.io/jam/alternative-reality-week">itch.io</a></div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Mar 28+</div>
+                            <div class="timeline-content">
+                                <strong>[[alternative reality]]: PLAY!</strong>
+                            </div>
+                        </div>
+                        <div class="timeline-sub-item">
+                            <div class="timeline-date">Mar 28–29</div>
+                            <div class="timeline-content">host and play games that have been made — see <a
+                                    href="calendar.html">calendar</a> for self-organized events</div>
                         </div>
                     </div>
-                    <div class="timeline-sub-item">
-                        <div class="timeline-date">Mar 21</div>
-                        <div class="timeline-content">game jam launch event (IRL + online) — UTC 12:00</div>
+
+                    <h3>Rules</h3>
+                    <ul>
+                        <li>don't make a fully digital game: some portion/all of it should be played in the physical
+                            world</li>
+                        <li>touch grass 𖡼.𖤣𖥧𖡼.𖤣𖥧</li>
+                        <li>be respectful and have fun･ ｡ﾟ☆: .☽ . :☆ﾟ.</li>
+                    </ul>
+                </section>
+
+                <section class="about-section">
+                    <h2>IRL Nodes</h2>
+                    <p>This JAM is happening both online (itch + Discord) and IRL. Organizers in the following cities
+                        are hosting IRL events. Join the <a href="https://discord.gg/XWcHTZeQg4">Discord</a> and go
+                        to your city's channel for details!</p>
+                    <div class="nodes-grid" id="nodes-grid"></div>
+                    <p>Not near any of these cities? You're still invited to join the JAM remotely! Join <a
+                            href="https://discord.gg/XWcHTZeQg4">Discord</a> to participate in general game-dev
+                        discussions, self-organize with people in your city, form a team online, or work alone.</p>
+                </section>
+
+                <section class="about-section">
+                    <h2>FAQ</h2>
+                    <div class="faq-list">
+                        <details class="faq-item">
+                            <summary>What counts as an [[alternative reality]] game?</summary>
+                            <p>Our definition is broader than the traditional "ARG"—any experience that combines game
+                                mechanisms and real-world elements as part of its design. Think: GPS, maps, websites,
+                                social media, texting, physical locations, role-playing, puzzles, public transport,
+                                parcels, QR codes, city infrastructures, and more.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>What tools/skills do I need?</summary>
+                            <p>Go no-tech, low-tech, or high-tech. You might use printed materials, websites, social
+                                media accounts, online forums, Google Calendar, NFC tags, audio recordings… everything
+                                honestly, or just clever use of public spaces.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>How do I participate if I'm not in a node city?</summary>
+                            <p>You can make and play games from anywhere, and submit directly via itch.io! To find a
+                                team or collaborator—in your city or across time zones—join the matchmaking in our
+                                Discord.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Can I work alone or in teams? Where can I find teammates?</summary>
+                            <p>Both are equally welcome! We'd love to see teams form across countries, creating games
+                                that require cooperation between multiple cities—but solo work is just as great.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>What format should my game submission be?</summary>
+                            <p>Your itch.io submission should include:</p>
+                            <ul>
+                                <li><strong>Instructions page:</strong> Clear description of what game master/hosts and
+                                    players need (location, materials, number of players, approximate playtime,
+                                    etc.).</li>
+                                <li><strong>Play mode declaration:</strong> See the options below.</li>
+                                <li><strong>Any necessary files or links.</strong></li>
+                            </ul>
+                            <p>We encourage "pickup and play" games—well documented so anyone can join without you (the
+                                designer) present.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>What happens after submission? Will my game be played?</summary>
+                            <p>Games made during JAM! can be tested and played during the PLAY! period. How it works
+                                depends on the play mode you select upon submission:</p>
+                            <ul>
+                                <li><strong>Self Host:</strong> You host your own game. Recruit players via Discord and
+                                    organize your own sessions during the PLAY period.</li>
+                                <li><strong>Open Pickup:</strong> Your game needs facilitation by someone but is
+                                    clearly documented enough for others to run without you.</li>
+                                <li><strong>Open Play:</strong> Your game can be played by the players without any
+                                    facilitation.</li>
+                            </ul>
+                            <p>Organizers of IRL nodes as well as participants around the world are encouraged to host
+                                public-facing games. All submissions will be included in our web archive, regardless of
+                                whether they went through the PLAY! weekend.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>What if I can't finish my game?</summary>
+                            <p>You can still submit later and self-organize play on your own timeline. Unfinished work
+                                and prototypes are welcome in the archive.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Can I participate in PLAY! without joining JAM!?</summary>
+                            <p>Yes! PLAY! is open to everyone. Details on how to access games will be shared closer to
+                                March 28.</p>
+                        </details>
                     </div>
-                    <div class="timeline-sub-item">
-                        <div class="timeline-date">Mar 25</div>
-                        <div class="timeline-content">game jam submissions due on <a href="https://itch.io/jam/alternative-reality-week">itch.io</a></div>
+                </section>
+
+                <section class="about-section">
+                    <h2>Community Statement</h2>
+                    <p><strong>Intellectual property:</strong> All IP of games made during this event belongs to the
+                        game maker(s). We keep an open-source archive of all submissions.</p>
+                    <p><strong>Content guidelines:</strong> Organizers reserve the right to exclude submissions that
+                        contain hateful, discriminatory, or otherwise inappropriate content.</p>
+                    <p><strong>Safety disclaimer:</strong> If your game involves activities in public spaces, please
+                        consider the physical safety of players and bystanders — and include clear safety notes in your
+                        game instructions. 🧡</p>
+                    <p>This jam is made possible thanks to the help of our friends: playfool, ferran, jana, kaho,
+                        farfama, morning.fyi, and more.</p>
+                </section>
+
+                <section class="about-section">
+                    <h2>Contact</h2>
+                    <p>Questions? Reach out on <a href="https://discord.gg/XWcHTZeQg4">Discord</a> or email
+                        <a href="mailto:rectanglerepair@gmail.com">rectanglerepair@gmail.com</a>
+                    </p>
+                </section>
+
+                <section class="about-section">
+                    <h2>inspirations</h2>
+                    <p>Some of our favourite examples include:</p>
+                    <ul>
+                        <li><a href="https://www.simonweckert.com/googlemapshacks.html" target="_blank"
+                                rel="noopener">Google Map Shacks by Simon Weckert</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/GeoWizard" target="_blank" rel="noopener">Geo
+                                Wizard</a></li>
+                        <li><a href="https://www.thomasthwaites.com/a-holiday-from-being-human-goatman/" target="_blank"
+                                rel="noopener">A Holiday from Being Human (GoatMan) by Thomas Thwaites</a></li>
+                        <li><a href="https://walzr.com/bop-spotter" target="_blank" rel="noopener">Bop Spotter</a> by
+                            <a href="https://walzr.com/" target="_blank" rel="noopener">Riley Walz</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <p>You might also be interested in more classic ARG examples with longer production timelines and
+                        bigger worldbuilding like:</p>
+                    <ul>
+                        <li><a href="https://en.wikipedia.org/wiki/List_of_alternate_reality_games" target="_blank"
+                                rel="noopener">wiki ARGs</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/List_of_geolocation-based_video_games"
+                                target="_blank" rel="noopener">Location Based Games</a></li>
+                        <li><a href="https://web.archive.org/web/20140421083126/https://www.wired.com/2011/03/games-of-nonchalance-an-artistic-arg-experience-3/"
+                                target="_blank" rel="noopener">the Jejune Institute</a></li>
+                        <li><a href="https://www.blasttheory.co.uk/projects/uncle-roy-all-around-you/" target="_blank"
+                                rel="noopener">Uncle Roy All Around You by Blast Theory</a></li>
+                        <li><a href="https://www.welcometonightvale.com/" target="_blank" rel="noopener">Welcome to
+                                Night Vale</a></li>
+                        <li><a href="https://www.geocaching.com/play" target="_blank" rel="noopener">Geocaching</a>...
+                        </li>
+                    </ul>
+                    <h3>Resources</h3>
+                    <p>Curated toolkit of tech related, hardware suggestions, and more game/artwork references: <a
+                            target="_blank"
+                            href="https://docs.google.com/document/d/1BEC6eaXPB0YLhNiv1Oj7RgLSHzk-DN_jiOsfIBHckPo/edit?usp=sharing">[[alternative
+                            reality]]:JAM! toolkit</a> (WIP)</p>
+                </section>
+            </div>
+
+            <!-- PLAY! branch -->
+            <div class="branch branch-play" id="play">
+                <section class="about-section">
+                    <h2>[[alternative reality]]: PLAY!</h2>
+                    <p>From March 28, games made during JAM! are open for play. Find a session near you, host one, or
+                        play online. PLAY! is open to everyone — you don't need to have participated in JAM! to join.
+                    </p>
+                </section>
+
+                <section class="about-section">
+                    <h2>How to Play</h2>
+                    <div class="faq-list">
+                        <details class="faq-item">
+                            <summary>Find a session</summary>
+                            <p>Check the calendar for upcoming sessions organized by other players and hosts. Filter by
+                                your timezone or city to find something nearby, or look for online sessions open to
+                                everyone.</p>
+                            <p><a href="calendar.html">→ view calendar</a></p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Host a session</summary>
+                            <p>Pick any game from the itch.io submissions and organize a play session — in your city,
+                                fully online, or across time zones. You don't need to be the designer to host. Join
+                                Discord to coordinate with other hosts and find players.</p>
+                            <p><a href="https://discord.gg/XWcHTZeQg4" target="_blank">→ join Discord</a></p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Add your session to the calendar</summary>
+                            <p>Want your session to show up on the community calendar so others can find and join?
+                                Submit
+                                your event details and it will appear on this site's calendar page.</p>
+                            <p><a href="#" target="_blank">→ submit an event</a></p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Self-organize</summary>
+                            <p>PLAY! is open-ended — you can run sessions anytime after March 28, on your own timeline.
+                                Invite others via Discord or itch.io comments. There's no deadline for playing.</p>
+                        </details>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Mar 28+</div>
-                        <div class="timeline-content">
-                            <strong>[[alternative reality]]: PLAY!</strong>
-                        </div>
-                    </div>
-                    <div class="timeline-sub-item">
-                        <div class="timeline-date">Mar 28–29</div>
-                        <div class="timeline-content">Host and play games that have been made. (More details about how to host a game, find players, or join a play session, on Discord.)</div>
-                    </div>
-                    <div class="timeline-sub-item">
-                        <div class="timeline-date"></div>
-                        <div class="timeline-content">see <a href="calendar.html">calendar</a> for self-organized events
-                        </div>
-                    </div>
-                </div>
+                </section>
 
-                <h3>Rules</h3>
-                <p>→ should not be a fully digital game: some portion/all of the game needs be played in the physical world .𖥔 ݁ ˖ `♡´</p>
-                <p>→ touch grass 𖡼.𖤣𖥧𖡼.𖤣𖥧</p>
-                <p>→ be respectful and have fun･ ｡ﾟ☆: .☽ . :☆ﾟ.</p>
-            </section>
+                <section class="about-section">
+                    <h2>Community Statement</h2>
+                    <p><strong>Intellectual property:</strong> All IP of games made during this event belongs to the
+                        game maker(s). We keep an open-source archive of all submissions.</p>
+                    <p><strong>Content guidelines:</strong> Organizers reserve the right to exclude submissions that
+                        contain hateful, discriminatory, or otherwise inappropriate content.</p>
+                    <p><strong>Safety disclaimer:</strong> If your game involves activities in public spaces, please
+                        consider the physical safety of players and bystanders — and include clear safety notes in your
+                        game instructions. 🧡</p>
+                    <p>This jam is made possible thanks to the help of our friends: playfool, ferran, jana, kaho,
+                        farfama, morning.fyi, and more.</p>
+                </section>
 
-            <section class="about-section">
-                <h2>IRL Nodes</h2>
-                <p>We are hosting this jam both online (itch + discord) and IRL. Organizers in the following cities are
-                    hosting IRL jam + play events. Join the <a href="https://discord.gg/XWcHTZeQg4">Discord</a> and go to your city's channel for details.</p>
-                <div class="nodes-grid" id="nodes-grid"></div>
-                <p>Not near any of these cities? You're still invited to join the JAM remotely! Join <a href="https://discord.gg/XWcHTZeQg4">Discord</a> to
-                    participate in general game-dev discussions, self-organize with people in your city, form a team
-                    online, or work alone.</p>
-            </section>
-
-            <section class="about-section">
-                <h2>FAQ</h2>
-                <div class="faq-list">
-                    <details class="faq-item">
-                        <summary>What counts as an [[alternative reality]] game?</summary>
-                        <p>Our definition is broader than the traditional "ARG"—any experience that combines game mechanisms and real-world elements as part of its design. Think: GPS, maps, websites, social media, texting, physical locations, role-playing, puzzles, public transport, parcels, QR codes, city infrastructures, and more.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>What tools/skills do I need?</summary>
-                        <p>Go no-tech, low-tech, or high-tech. You might use printed materials, websites, social media accounts, online forums, Google Calendar, NFC tags, audio recordings… everything honestly, or just clever use of public spaces.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>How do I participate if I'm not in a node city?</summary>
-                        <p>You can make and play games from anywhere, and submit directly via itch.io! To find a team or collaborator—in your city or across time zones—join the matchmaking in our Discord.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>Can I work alone or in teams? Where can I find teammates?</summary>
-                        <p>Both are equally welcome! We'd love to see teams form across countries, creating games that require cooperation between multiple cities—but solo work is just as great.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>What format should my game submission be?</summary>
-                        <p>Your itch.io submission should include:</p>
-                        <ul>
-                            <li><strong>Instructions page:</strong> Clear description of what game master/hosts and players need (location, materials, number of players, approximate playtime, etc.).</li>
-                            <li><strong>Play mode declaration:</strong> See the options below.</li>
-                            <li><strong>Any necessary files or links.</strong></li>
-                        </ul>
-                        <p>We encourage "pickup and play" games—well documented so anyone can join without you (the designer) present.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>What happens after submission? Will my game be played?</summary>
-                        <p>That depends on the play mode you select upon submission:</p>
-                        <ul>
-                            <li><strong>I have to host:</strong> You host your own game. Recruit players via Discord and organize your own sessions.</li>
-                            <li><strong>Pickup and play (needs GM):</strong> Your game needs facilitation by someone but is clearly documented enough for others to run without you.</li>
-                            <li><strong>Pickup and play (no GM):</strong> Your game can be played by the players without any facilitation.</li>
-                        </ul>
-                        <p>All submissions will be included in our web archive, regardless of whether they went through the PLAY! weekend.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>What if I can't finish my game?</summary>
-                        <p>You can still submit later and self-organize play on your own timeline. Unfinished work and prototypes are welcome in the archive.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>Can I participate in PLAY! without joining JAM!?</summary>
-                        <p>Yes! PLAY! is open to everyone. Details on how to access games will be shared closer to March 28.</p>
-                    </details>
-                </div>
-            </section>
-
-            <section class="about-section">
-                <h2>inspirations and ideas</h2>
-                <p>Some of our favourite examples include:</p>
-                <ul>
-                    <li><a href="https://www.simonweckert.com/googlemapshacks.html" target="_blank" rel="noopener">google map shacks by Simon Weckert</a></li>
-                    <li><a href="https://en.wikipedia.org/wiki/GeoWizard" target="_blank" rel="noopener">Geo Wizard</a></li>
-                    <li><a href="https://www.thomasthwaites.com/a-holiday-from-being-human-goatman/" target="_blank" rel="noopener">A holiday from being human (GoatMan) by Thomas Thwaites</a></li>
-                    <li><a href="https://walzr.com/bop-spotter" target="_blank" rel="noopener">bop-spotter</a> by <a href="https://walzr.com/" target="_blank" rel="noopener">Riley Walz</a></li>
-                </ul>
-                <br>
-                <p> You might also be interested in more classic ARG examples that had longer production timeline and some sort of grand worldbuilding like:</p>
-                <ul>
-                    <li><a href="https://en.wikipedia.org/wiki/List_of_alternate_reality_games" target="_blank" rel="noopener">wiki ARGs</a> </li>
-                    <li><a href="https://en.wikipedia.org/wiki/List_of_geolocation-based_video_games" target="_blank" rel="noopener">Location based games</a></li>
-                    <li><a href="https://web.archive.org/web/20140421083126/https://www.wired.com/2011/03/games-of-nonchalance-an-artistic-arg-experience-3/" target="_blank" rel="noopener">the jejune institute</a> </li>
-                    <li><a href="https://www.blasttheory.co.uk/projects/uncle-roy-all-around-you/" target="_blank" rel="noopener">Uncle Roy All Around You by Blast Theory</a> </li>
-                    <li><a href="https://www.welcometonightvale.com/" target="_blank" rel="noopener">welcometonightvale.com/</a></li>
-                    <li><a href="https://www.geocaching.com/play" target="_blank" rel="noopener">Geocaching</a>...</li>
-                </ul>
-                <br>
-                <p>Here are some diversifiers:</p>
-                <ul>
-                    <li><strong>"hyper-local"</strong>: The entire game takes place within a single city block.</li>
-                    <li><strong>"the long game"</strong>: a game intended to be played for over a year.</li>
-                    <li><strong>"the flash game</strong>": a game that must be complated in 10 minutes.</li>
-                    <li><strong>"translocal"</strong>: a&nbsp;game that requires collaboration or competition between players in two different time zones or hemispheres to be completed.</li>
-                    <li><strong>“cross-border”</strong>: collaborate with a designer from another country.</li>
-                    <li><strong>"weather-report"</strong>: use weather as a game element.</li>
-                    <li><strong>"synchronicity"</strong>: a&nbsp;game that can only be played at a specific location at a specific time.</li>
-                    <li><strong>"ubiquity"</strong>: a&nbsp;game designed to be played in multiple places around the world.</li>
-                    <li><strong>"public props"</strong>: incorporate public objects into your mechanics: poles, trash bins, transit systems, license plates, bollards, road signs, water tanks, POS machines...</li>
-                    <li><strong>"flora &amp; fauna"</strong>: use the more natural part of the&nbsp;city flowers, trees, animals, animal tracks, public art, statues..</li>
-                    <li><strong>"access-denied</strong>": using controlled areas that requires&nbsp;ID cards, keys, memberships..</li>
-                    <li><strong>"dead zones"</strong>: center the game on "invisible" infrastructure: signal dead zones, utility grids (water/power), waste routes, trash sites...</li>
-                    <li><strong>"open source"</strong>: use public information: time schedules, notice boards, warning signs, graffiti / flyers, menu, ads, guides, maps, people’s clothing, public APIs.</li>
-                    <li><strong>"forgotten city"</strong>: make people visit&nbsp;abandoned places (legally)</li>
-                    <li>"<strong>urban outfitter</strong>": utilize everyday places -&nbsp;convenient stores, realtors, parks, gyms, restaurants, restrooms, parking lot...</li>
-                    <li><strong>"death stranding"</strong>: focusing on actions in urban spaces - traversing, observing, sleeping, shopping, roleplaying, acting, searching, delivery, meet up/gathering, following/stalking, talking, walking, jogging, giving a speech, haggling, walking/cycling speed...</li>
-                    <li><strong>"the S&amp;P 500"</strong>: base your game mechanics on&nbsp;local prices/socioeconomic facators such as local&nbsp;rent, real estate, gas prices,&nbsp;food prices, salary levels...</li>
-                    <li><strong>“rogue-like"</strong>: gamifying a daily routine</li>
-                    <li><strong>"the MMO"</strong>: a game that requires more than 10 people to participate.</li>
-                    <li><strong>"add friend"</strong>:&nbsp;a game specifically for strangers to become friends.</li>
-                    <li><strong>"youtube IRL"</strong>: pay tribute to an old internet legend ARG you only watched on youtube but never played.</li>
-                    <li><strong>"urban legend"</strong>: a game that becomes an urban legend.</li>
-                    <li><strong>"IRL port"</strong>: recreate your favorite game (genre) IRL.</li>
-                    <li><strong>"prankser</strong>": successfully prank an online community.<br>
-                    </li>
-                    <li><strong>”the historian</strong>": create fictional company/game/history&nbsp;</li>
-                    <li><strong>"the influencer"</strong>:&nbsp;make something viral/trending</li>
-                    <li><strong>"LARP": </strong>make a LARP</li>
-                    <li><strong>"Olympics":&nbsp;</strong>make a new sport<br>...</li>
-                </ul>
-            </section>
-
-            <section class="about-section">
-                <h2>Resources and Tools</h2>
-                <p>Curated toolkit of tech related, hardware suggestions, and more game/artwork references:</p>
-                <p><a target="_blank" href="https://docs.google.com/document/d/1BEC6eaXPB0YLhNiv1Oj7RgLSHzk-DN_jiOsfIBHckPo/edit?usp=sharing">[[alternative reality]]:JAM! kit</a>(WIP)</p>
-            </section>
-
-            <section class="about-section">
-                <h2>Community Statement</h2>
-                <p><strong>Intellectual property:</strong> All IP of games made during this event belongs to the game maker(s). We keep an archive of all submissions.</p>
-                <p><strong>Content guidelines:</strong> Organizers reserve the right to exclude submissions that contain hateful, discriminatory, or otherwise inappropriate content.</p>
-                <p><strong>Safety disclaimer:</strong> If your game involves activities in public spaces, please consider the physical safety of players and bystanders — and include clear safety notes in your game instructions. 🧡</p>
-                <p>This jam is made possible thanks to the help of our friends: playfool, ferran, jana, kaho, farfama and more.</p>
-            </section>
+                <section class="about-section">
+                    <h2>Contact</h2>
+                    <p>Questions? Reach out on <a href="https://discord.gg/XWcHTZeQg4">Discord</a> or email
+                        <a href="mailto:rectanglerepair@gmail.com">rectanglerepair@gmail.com</a>
+                    </p>
+                </section>
+            </div>
 
 
-            <section class="about-section">
-                <h2>Contact</h2>
-                <p>
-                    Questions? Reach out on <a href="https://discord.gg/XWcHTZeQg4">Discord</a> or email
-                    <a href="mailto:rectanglerepair@gmail.com">rectanglerepair@gmail.com</a>
-                </p>
-            </section>
         </div>
     </main>
 
@@ -259,8 +332,18 @@
     </footer>
     <script src="nodes-data.js"></script>
     <script>
+        function switchBranch(branch) {
+            document.querySelectorAll('.branch').forEach(b => b.classList.remove('active'));
+            document.querySelector('.branch-' + branch).classList.add('active');
+            document.querySelectorAll('.branch-step').forEach(s => s.classList.remove('active'));
+            document.getElementById('step-' + branch).classList.add('active');
+            // Scroll to branch content
+            document.querySelector('.branch-' + branch).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+    <script>
         // Render nodes grid from shared data
-        (function() {
+        (function () {
             const grid = document.getElementById('nodes-grid');
             if (!grid) return;
             grid.innerHTML = NODES.map(node => {
