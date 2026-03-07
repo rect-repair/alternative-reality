@@ -181,6 +181,7 @@ nav a.active {
         font-size: 42px;
         margin: none;
         padding: none;
+        background: transparent;
     }
 
     .nav-toggle {
@@ -250,6 +251,11 @@ main {
         /* height: 60vh; */
         border: none;
         /* border-bottom: 3px solid var(--blue); */
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
     }
 
 }
@@ -417,13 +423,6 @@ main {
     flex-direction: column;
     height: 100%;
     overflow-y: auto;
-}
-
-@media (max-width: 900px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-    }
 }
 
 .sidebar-section {

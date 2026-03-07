@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Anybody:wght@400;700;900&display=swap');
 
 :root {
-    --blue: #000dffe6;
+    --blue: #000dff;
     --blue-light: #84a8ec;
     --yellow: #ffe600;
     --cyan: #0040ff;
@@ -9,7 +9,7 @@
     --black: #0a0a0a;
     --white: #ffffff;
     --gray: #dcdcdc;
-    --transgray: #dcdcdca0;
+    --transgray: #dcdcdcb2;
     --darkgray: #6a6a6a;
 
     --body: Arial, sans-serif;
