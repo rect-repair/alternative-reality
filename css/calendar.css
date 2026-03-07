@@ -512,13 +512,58 @@ body.page-calendar {
 }
 
 
+@media (max-width: 1200px) {
+    .calendar-page {
+        grid-template-columns: 270px 1fr;
+    }
+
+    .timeline-sidebar {
+        padding: 16px;
+    }
+
+    .tz-label {
+        font-size: 12px;
+    }
+
+    #tz-select {
+        font-size: 12px;
+        padding: 3px 4px;
+    }
+
+    .timeline-date {
+        font-size: 15px;
+    }
+
+    .timeline-title {
+        font-size: 15px;
+    }
+
+    .timeline-time {
+        font-size: 15px;
+    }
+
+    .calendar-grid-header h2 {
+        font-size: 38px;
+    }
+
+    .cal-day-num {
+        font-size: 20px;
+        font-family: var(--body);
+        font-weight: 600;
+    }
+
+    .cal-event-name {
+        font-size: 11px;
+    }
+}
+
 @media (max-width: 900px) {
     body.page-calendar {
         overflow: auto;
     }
 
     .calendar-main {
-        height: auto;
+        /* height: auto; */
         padding-top: 20px;
         padding-bottom: 20px;
         overflow: visible;
@@ -541,6 +586,7 @@ body.page-calendar {
         overflow: visible !important;
         border-right: none;
         border-top: 3px solid var(--blue);
+        padding-bottom: 100px;
     }
 
     .calendar-large {

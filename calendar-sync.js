@@ -34,7 +34,7 @@ const SET_DATES = {
         // },
         {
             id: 'set-jam-period',
-            title: 'JAM! period',
+            title: 'JAM!',
             start: date(2026, 3, 22),
             end: date(2026, 3, 25),
             type: 'jam',
@@ -44,7 +44,7 @@ const SET_DATES = {
         },
         {
             id: 'set-deadline',
-            title: 'JAM! Submissions Due',
+            title: 'Submissions Due',
             start: date(2026, 3, 25),
             end: date(2026, 3, 25),
             type: 'deadline',
@@ -499,12 +499,12 @@ class CalendarRenderer {
 
     getTagStyle(type) {
         const styles = {
-            'launch': 'style="background: var(--orange); color: var(--black);"',
+            'launch': 'style="background: var(--blue); color: var(--white);"',
             'play': 'style="background: var(--lime); color: var(--black);"',
-            'deadline': 'style="background: var(--blue); color: var(--white);"',
-            'open': '',
-            'jam': 'style="background: var(--magenta); color: var(--white);"',
-            'default': ''
+            'deadline': 'style="background: #ff4444; color: var(--white);"',
+            'open': 'style="background: var(--yellow); color: var(--black);"',
+            'jam': 'style="background: var(--cyan); color: var(--black);"',
+            'default': 'style="background: #666; color: var(--white);"'
         };
         return styles[type] || styles.default;
     }
