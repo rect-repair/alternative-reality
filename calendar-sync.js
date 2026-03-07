@@ -1,19 +1,22 @@
 // Google Calendar Sync
-// Config is loaded from calendar-config.js (gitignored)
-// Copy calendar-config.example.js to calendar-config.js to configure
+
+// helper date function, convert 1 index month to 0 index
+function date(year, month, day) {
+    return new Date(year, month - 1, day);
+}
 
 // ============================================
-// HARDCODED SET DATES - These always show
+// set dates
 // ============================================
 const SET_DATES = {
     year: 2026,
-    month: 2, // March (0-indexed)
+    month: 3,
     events: [
         {
             id: 'set-open',
             title: 'Itch.io jam page live',
-            start: new Date(2026, 2, 1),
-            end: new Date(2026, 2, 1),
+            start: date(2026, 3, 1),
+            end: date(2026, 3, 1),
             type: 'open',
             location: '',
             isAllDay: true,
@@ -21,9 +24,9 @@ const SET_DATES = {
         },
         {
             id: 'set-jam-launch',
-            title: 'Game Jam Launch',
-            start: new Date(2026, 2, 21),
-            end: new Date(2026, 2, 21),
+            title: 'JAM! Launch',
+            start: date(2026, 3, 21),
+            end: date(2026, 3, 21),
             type: 'launch',
             location: 'ALL NODES',
             isAllDay: true,
@@ -32,8 +35,8 @@ const SET_DATES = {
         {
             id: 'set-jam-period',
             title: 'Jam Period',
-            start: new Date(2026, 2, 22),
-            end: new Date(2026, 2, 26),
+            start: date(2026, 3, 22),
+            end: date(2026, 3, 25),
             type: 'jam',
             location: '',
             isAllDay: true,
@@ -42,8 +45,8 @@ const SET_DATES = {
         {
             id: 'set-deadline',
             title: 'Submissions Due',
-            start: new Date(2026, 2, 27),
-            end: new Date(2026, 2, 27),
+            start: date(2026, 3, 25),
+            end: date(2026, 3, 25),
             type: 'deadline',
             location: '23:59 UTC',
             isAllDay: true,
@@ -51,9 +54,9 @@ const SET_DATES = {
         },
         {
             id: 'set-play-1',
-            title: 'Public Play',
-            start: new Date(2026, 2, 28),
-            end: new Date(2026, 2, 28),
+            title: 'PLAY! Launch',
+            start: date(2026, 3, 28),
+            end: date(2026, 3, 28),
             type: 'play',
             location: 'ALL NODES',
             isAllDay: true,
@@ -61,9 +64,9 @@ const SET_DATES = {
         },
         {
             id: 'set-play-2',
-            title: 'Public Play',
-            start: new Date(2026, 2, 29),
-            end: new Date(2026, 2, 29),
+            title: 'PLAY!',
+            start: date(2026, 3, 29),
+            end: date(2026, 3, 29),
             type: 'play',
             location: 'ALL NODES',
             isAllDay: true,
@@ -95,10 +98,10 @@ class CalendarSync {
         this.events = [];
         this.syncedEvents = [];
         this.isConfigured = this.config.enableSync &&
-                           this.config.apiKey &&
-                           this.config.apiKey !== 'YOUR_API_KEY_HERE' &&
-                           this.config.calendarId &&
-                           this.config.calendarId !== 'YOUR_CALENDAR_ID_HERE';
+            this.config.apiKey &&
+            this.config.apiKey !== 'YOUR_API_KEY_HERE' &&
+            this.config.calendarId &&
+            this.config.calendarId !== 'YOUR_CALENDAR_ID_HERE';
     }
 
     async fetchEvents() {
@@ -238,7 +241,7 @@ class CalendarRenderer {
         const daysInMonth = lastDay.getDate();
 
         const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-                          'July', 'August', 'September', 'October', 'November', 'December'];
+            'July', 'August', 'September', 'October', 'November', 'December'];
 
         let html = `<h2>${monthNames[month]} ${year}</h2>`;
         html += '<div class="calendar">';
@@ -482,7 +485,7 @@ async function initCalendar() {
 
     // Always show March 2026 for the set dates
     const displayYear = SET_DATES.year;
-    const displayMonth = SET_DATES.month;
+    const displayMonth = SET_DATES.month - 1; // convert to 0-indexed for JS Date API
 
     // Render mini calendar (index.html sidebar)
     if (document.getElementById('mini-calendar')) {
@@ -513,7 +516,7 @@ async function initCalendar() {
     const monthTitle = document.getElementById('calendar-month-title');
     if (monthTitle) {
         const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-                          'July', 'August', 'September', 'October', 'November', 'December'];
+            'July', 'August', 'September', 'October', 'November', 'December'];
         monthTitle.textContent = `${monthNames[displayMonth].toUpperCase()} ${displayYear}`;
     }
 }
