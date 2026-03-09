@@ -506,7 +506,7 @@ body.page-about {
     .about-section .timeline-item {
         padding-left: 12px;
         margin-left: 0;
-        gap: 2px;
+        gap: 24px;
     }
 
     .about-section .timeline-date {
@@ -520,7 +520,7 @@ body.page-about {
 
     .about-section .timeline-sub-item {
         font-size: 14px;
-        gap: 2px;
+        gap: 24px;
         padding-left: 12px;
         margin-left: 0;
     }
