@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[[alternative reality]]: WEEK!</title>
+    <link rel="icon" type="image/png" href="public/icon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/about.css">
+</head>
+
+<body class="page-about">
+    <header>
+        <button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+        <div class="header-title">[[alternative reality]]: WEEK!</div>
+        <nav>
+            <a href="index.html">Map</a>
+            <a href="calendar.html">Calendar</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <main class="about-main">
+        <div class="about-content">
+            <section class="about-section">
+                <h2>[[rect*]]repair Code of Conduct</h2>
+                <p>[[rect*]]repair is a translocal art game collective. Our Discord, events, and collaborative projects
+                    are
+                    spaces for play, experimentation, and community. [[rect*]]repair is dedicated to providing a safe
+                    and
+                    harassment-free experience for everyone, regardless of gender, gender identity and expression, age,
+                    sexual orientation, disability, physical appearance, body size, race, ethnicity, national origin,
+                    religion (or lack thereof), or technology and artistic choices.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>Expected Behavior</h2>
+                <ul>
+                    <li><strong>Be kind, patient, and generous.</strong> Assume good faith. Many of us are working
+                        across languages, time zones, and cultural contexts.</li>
+                    <li><strong>Respect people's boundaries and space</strong>, online and in person.</li>
+                    <li><strong>Content appropriateness:</strong> Use content warnings when sharing material that may be
+                        distressing, including but not limited to: violence, sexual content, flashing imagery, or
+                        depictions of abuse. Degrading sexual language and imagery is not appropriate in any rect*repair
+                        context.</li>
+                    <li><strong>Productive communication</strong> requires effort. Think about how your words will be
+                        interpreted.</li>
+                </ul>
+            </section>
+
+            <section class="about-section">
+                <h2>Unacceptable Behavior</h2>
+                <p>Harassment includes, but is not limited to:</p>
+                <ul>
+                    <li>Unwelcome or hostile behavior, speech, or contact</li>
+                    <li>Deliberate intimidation, stalking, or following</li>
+                    <li>Unwelcome sexual attention or imagery</li>
+                    <li>Spamming, trolling, or flaming</li>
+                    <li>Posting (or threatening to post) others' personally identifying information (doxing)</li>
+                    <li>Microaggressions: brief and commonplace verbal, behavioral, or environmental indignities that
+                        communicate hostile or derogatory slights</li>
+                    <li>Harassment based on race, gender, religion, age, color, national origin, physical appearance,
+                        disability, sexual orientation, or gender identity</li>
+                    <li>Symbols of hatred in any form</li>
+                    <li>Harassing photography or recording</li>
+                    <li>Advocating for or encouraging any of the above</li>
+                </ul>
+                <p>Private harassment is also unacceptable. No matter who you are, if you feel you have been or are
+                    being harassed or made uncomfortable by a community member, please reach out.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>Enforcement</h2>
+                <p>If someone engages in behavior that violates this Code of Conduct, organizers may take any action
+                    they deem appropriate, including but not limited to:</p>
+                <ul>
+                    <li>Asking a violator to apologize for their actions</li>
+                    <li>A conversation about the behavior</li>
+                    <li>A warning</li>
+                    <li>A temporary timeout or mute</li>
+                    <li>Removal from a channel, event, or project</li>
+                    <li>A ban from rect*repair spaces</li>
+                </ul>
+                <p>We believe in restorative approaches where possible. The goal is not punishment but community care —
+                    addressing harm, making space for accountability, and moving forward together. That said, the safety
+                    of the community comes first.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>Reporting</h2>
+                <p>If you experience or witness a violation, please reach out:</p>
+                <ul>
+                    <li><strong>Discord:</strong> DM admins joanna @1y01yyu or viola @sandpills</li>
+                    <li><strong>In-person Events:</strong> Events might be organized by different community members. You
+                        should contact whoever is organizing the event.</li>
+                </ul>
+                <p>Reports will be handled with discretion. We will respect your privacy to the extent possible while
+                    addressing the situation.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>Attribution</h2>
+                <p>This Code of Conduct draws on community guidelines from <a href="https://livecode.nyc"
+                        target="_blank" rel="noopener">Livecode.NYC</a> and <a href="https://gaemz.carrd.co/"
+                        target="_blank" rel="noopener">Gæmz</a>, as well as the
+                    broader tradition of community codes of conduct in creative and tech spaces.</p>
+                <p><em>This is a living document. rect*repair organizers may update it as the community grows and
+                        evolves.</em></p>
+                <p>← <a href="about.html">back to about</a></p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-brand">[[rect*]]repair</div>
+        <div class="footer-status">
+            <span class="blink">●</span>
+            <span>SYS::ONLINE</span>
+        </div>
+        <div class="footer-links">
+            <a href="https://itch.io/jam/alternative-reality-jam">ITCH.IO</a>
+            <a href="https://discord.gg/XWcHTZeQg4">DISCORD</a>
+        </div>
+        <div class="footer-time" id="current-time"></div>
+    </footer>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('current-time').textContent = time;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+
+</html>
