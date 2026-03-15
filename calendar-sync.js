@@ -503,8 +503,8 @@ class CalendarRenderer {
             'play': 'style="background: var(--lime); color: var(--black);"',
             'deadline': 'style="background: #ff4444; color: var(--white);"',
             'open': 'style="background: var(--yellow); color: var(--black);"',
-            'jam': 'style="background: var(--cyan); color: var(--black);"',
-            'default': 'style="background: #666; color: var(--white);"'
+            'jam': 'style="background: var(--blue-light); color: var(--black);"',
+            'default': 'style="background: var(--cyan); color: var(--white);"'
         };
         return styles[type] || styles.default;
     }
