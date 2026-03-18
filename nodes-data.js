@@ -62,12 +62,11 @@ const NODES = [
     {
         id: 'nyc',
         city: 'NYC',
-        tz: 'pending',
-        org: 'TBD',
+        tz: 'UTC-5',
+        org: 'queenie + brandon + cyrene',
         url: null,
-        cityUrl: null,
-        schedule: null,
-        coords: [-74.0060, 40.7128],
-        pending: true
+        cityUrl: "https://forms.gle/zDS5Ac4Q6LzJjfqW9",
+        schedule: '2 day game jam (21 – 22 March)<br>',
+        coords: [40.6927, -73.9876],
     }
 ];
