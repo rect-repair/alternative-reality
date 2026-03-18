@@ -49,16 +49,16 @@ const NODES = [
         schedule: '1 day game jam (21st March)<br>+ playtest session (29th March or later)',
         coords: [4.3007, 52.0705]
     },
-    {
-        id: 'mexico',
-        city: 'Mexico City',
-        tz: 'UTC-6',
-        org: 'TBD',
-        url: null,
-        cityUrl: null,
-        schedule: null,
-        coords: [-99.1332, 19.4326]
-    },
+    // {
+    //     id: 'mexico',
+    //     city: 'Mexico City',
+    //     tz: 'UTC-6',
+    //     org: 'TBD',
+    //     url: null,
+    //     cityUrl: null,
+    //     schedule: null,
+    //     coords: [-99.1332, 19.4326]
+    // },
     {
         id: 'nyc',
         city: 'NYC',
@@ -67,6 +67,6 @@ const NODES = [
         url: null,
         cityUrl: "https://forms.gle/zDS5Ac4Q6LzJjfqW9",
         schedule: '2 day game jam (21 – 22 March)<br>',
-        coords: [40.6927, -73.9876],
+        coords: [-73.9876, 40.6927],
     }
 ];
