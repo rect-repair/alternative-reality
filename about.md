@@ -22,7 +22,7 @@ Do you mean alternate reality game (ARG)? Nope! Well, kind of Alternative, as in
 ### Timeline
 
 March 21-25: [[alternative reality]]: JAM!
-    - March 21 (Sat) UTC 12:00: game jam launch event (IRL + online)
+    - March 21 (Sat) UTC 11:00: game jam launch event (IRL + online)
     - [tentative] Blast theory talk
     - March 25 (Weds) UTC ??? game jam submissions due
 March 28-???: [[alternative reality]]: GAME! 
