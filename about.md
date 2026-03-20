@@ -23,7 +23,7 @@ Do you mean alternate reality game (ARG)? Nope! Well, kind of Alternative, as in
 
 March 21-25: [[alternative reality]]: JAM!
     - March 21 (Sat) UTC 11:00: game jam launch event (IRL + online)
-    - [tentative] Blast theory talk
+    - March 21 (Sat) UTC 14:00: guest talk by Matt Adams (Blast Theory)
     - March 25 (Weds) UTC ??? game jam submissions due
 March 28-???: [[alternative reality]]: GAME! 
     - March 28-29 (Sat-Sun) play events hosted by node organizers or oragnize your own!
